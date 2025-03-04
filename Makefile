@@ -8,7 +8,7 @@ LIBFT = $(LIBFT_PATH)/libft.a
 
 HEADERS = -I ./libs -I $(LIBFT_PATH)
 
-SRCS =
+SRCS = src/main.c
 
 OBJS = $(SRCS:$(SRCDIR)%.c=$(OBJDIR)%.o)
 SRCDIR = src/
