@@ -1,35 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/04 14:16:11 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/03/05 18:11:25 by erico-ke         ###   ########.fr       */
+/*   Created: 2025/03/05 18:10:04 by erico-ke          #+#    #+#             */
+/*   Updated: 2025/03/05 18:10:52 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-# include "../libs/libft/src/libft.h"
+#include "push_swap.h"
 
-typedef struct s_stack
+int	print_error(void)
 {
-	void			*content;
-	struct stack	*next;
-}	t_stack;
-
-typedef struct s_push_swap
-{
-	t_stack	*a;
-	t_stack	*b;
-}	t_push_swap;
-
-/* Parse */
-int	control(int argc, char **input, t_push_swap *stu);
-
-/* Error control and output */
-int	print_error(void);
-
-#endif
+	ft_printf("%s\n", 2, "Error");
+	return (EXIT_FAILURE);
+}
