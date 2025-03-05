@@ -6,11 +6,13 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 14:16:08 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/03/04 18:59:09 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/03/05 15:53:05 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
+
 int	main(int argc, char **argv)
 {
-	
+	t_push_swap	stu;
 }
