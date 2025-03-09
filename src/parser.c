@@ -6,7 +6,7 @@
 /*   By: erico-ke <erico-ke@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 17:53:03 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/03/09 02:41:56 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/03/09 03:28:42 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	ft_decomprime(char *str, t_push_swap *lst)
 	i = 0;
 	while (res[i])
 	{
-		if (ft_isdigit(res[i]) == 1)
+		if (ft_isdigit(ft_atoi(res[i])) == 1)
 			return (EXIT_FAILURE);
 		i++;
 	}
@@ -88,8 +88,10 @@ despues delegara a una funcion que se encargue de checkear que no haya duplicado
 int	control(int argc, char **input, t_push_swap *lst)
 {
 	if (argc == 2)
+	{
 		if (ft_decomprime(input[1], lst) == EXIT_FAILURE)
 			return (EXIT_FAILURE);
+	}
 	else
 		if (ft_init(input, lst) == EXIT_FAILURE)
 			return (EXIT_FAILURE);
