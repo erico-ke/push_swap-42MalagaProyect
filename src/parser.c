@@ -3,23 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erico-ke <erico-ke@student.42.fr>          +#+  +:+       +#+        */
+/*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 17:53:03 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/03/09 03:28:42 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/03/12 14:54:59 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*lst_new(void *content)
+t_stack	*lst_new(int content)
 {
 	t_stack	*x;
 
 	x = (t_stack *) malloc (sizeof(t_stack));
 	if (!x)
 		return (NULL);
-	x->content = content;
+	x->content = &content;
 	x->next = NULL;
 	return (x);
 }
@@ -60,7 +60,7 @@ int	ft_init(char **str, t_push_swap *lst)
 	i = 1;
 	while (str[i])
 	{
-		if (ft_isdigit(str[i]) == 1)
+		if (ft_isdigit(ft_atoi(str[i])) == 1)
 			return (EXIT_FAILURE);
 		i++;
 	}

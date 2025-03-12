@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erico-ke <erico-ke@student.42.fr>          +#+  +:+       +#+        */
+/*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 14:16:11 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/03/09 03:07:48 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/03/12 14:53:54 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 
 typedef struct s_stack
 {
-	void			*content;
-	struct stack	*next;
+	int				*content;
+	struct s_stack	*next;
 }	t_stack;
 
 typedef struct s_push_swap
