@@ -8,7 +8,7 @@ LIBFT = $(LIBFT_PATH)/libft.a
 
 HEADERS = -I ./libs -I $(LIBFT_PATH)
 
-SRCS = src/main.c src/parser.c src/error.c
+SRCS = src/main.c src/parser.c src/error.c src/utils.c
 
 OBJS = $(SRCS:$(SRCDIR)%.c=$(OBJDIR)%.o)
 SRCDIR = src/
@@ -17,7 +17,7 @@ OBJDIR = obj/
 all : $(LIBFT) $(OBJDIR) $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(HEADERS) -o $(NAME) -lm
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(HEADERS) -o $(NAME)
 
 $(OBJDIR)%.o: $(SRCDIR)%.c
 	$(CC) $(CFLAGS) -c $< -o $@

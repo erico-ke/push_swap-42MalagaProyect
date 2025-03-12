@@ -6,7 +6,7 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 17:53:03 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/03/12 16:01:48 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/03/12 18:39:27 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ t_stack	*lst_new(int content)
 	return (x);
 }
 
-
 int	ft_decomprime(char *str, t_push_swap *lst)
 {
 	int		i;
@@ -38,13 +37,13 @@ int	ft_decomprime(char *str, t_push_swap *lst)
 			return (print_error());
 		i++;
 	}
-	lst->a = lst_new(ft_atoi(res[0]));//El atoi deberia ser atol y luego castearlo a int
+	lst->a = lst_new((int)ft_atol(res[0]));//El atoi deberia ser atol y luego castearlo a int
 	i = 1;
 	while (res[i])
 	{
 		if (!lst->a)
 			return (EXIT_FAILURE);
-		lst->a->next = lst_new(ft_atoi(res[i]));
+		lst->a->next = lst_new((int)ft_atol(res[i]));
 		if (!lst->a->next)
 			return (EXIT_FAILURE);
 		lst->a = lst->a->next;
@@ -64,13 +63,13 @@ int	ft_init(char **str, t_push_swap *lst)
 			return (print_error());
 		i++;
 	}
-	lst->a->next = lst_new(ft_atoi(str[0]));
+	lst->a->next = lst_new((int)ft_atol(str[0]));
 	i = 1;
 	while (str[i])
 	{
 		if (!lst->a)
 			return (EXIT_FAILURE);
-		lst->a->next = lst_new(ft_atoi(str[i]));
+		lst->a->next = lst_new((int)ft_atol(str[i]));
 		if (!lst->a->next)
 			return (EXIT_FAILURE);
 		lst->a = lst->a->next;
