@@ -6,7 +6,7 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 17:53:03 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/03/12 15:03:04 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/03/12 16:01:48 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ int	ft_decomprime(char *str, t_push_swap *lst)
 	i = 0;
 	while (res[i])
 	{
-		if (ft_isdigit(ft_atoi(res[i])) == 1)
-			return (EXIT_FAILURE);
+		if (ft_isdigit(*res[i]) == 0)
+			return (print_error());
 		i++;
 	}
 	lst->a = lst_new(ft_atoi(res[0]));//El atoi deberia ser atol y luego castearlo a int
@@ -60,8 +60,8 @@ int	ft_init(char **str, t_push_swap *lst)
 	i = 1;
 	while (str[i])
 	{
-		if (ft_isdigit(ft_atoi(str[i])) == 1)
-			return (EXIT_FAILURE);
+		if (ft_isdigit(*str[i]) == 0)
+			return (print_error());
 		i++;
 	}
 	lst->a->next = lst_new(ft_atoi(str[0]));
