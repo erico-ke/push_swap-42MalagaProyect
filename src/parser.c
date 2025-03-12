@@ -6,7 +6,7 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 17:53:03 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/03/12 18:39:27 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/03/12 19:15:59 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,20 +24,20 @@ t_stack	*lst_new(int content)
 	return (x);
 }
 
-int	ft_decomprime(char *str, t_push_swap *lst)
+int	ft_decomprime(char *str, t_push_swap *lst, int i, int j)
 {
-	int		i;
 	char	**res;
-
+	
 	res = ft_split(str, ' ');
-	i = 0;
 	while (res[i])
 	{
-		if (ft_isdigit(*res[i]) == 0)
-			return (print_error());
+		j = 0;
+		while (res[i][j++])
+			if (ft_isdigit(res[i][j]) == 0)
+				return (print_error());
 		i++;
 	}
-	lst->a = lst_new((int)ft_atol(res[0]));//El atoi deberia ser atol y luego castearlo a int
+	lst->a = lst_new((int)ft_atol(res[0]));
 	i = 1;
 	while (res[i])
 	{
@@ -52,19 +52,21 @@ int	ft_decomprime(char *str, t_push_swap *lst)
 	return (EXIT_SUCCESS);
 }
 
-int	ft_init(char **str, t_push_swap *lst)
+int	ft_init(char **str, t_push_swap *lst, int i, int j)
 {
-	int	i;
-
-	i = 1;
 	while (str[i])
 	{
-		if (ft_isdigit(*str[i]) == 0)
-			return (print_error());
+		j = 0;
+		while(str[i][j])
+		{
+			if (ft_isdigit(str[i][j]) == 0)
+				return (print_error());
+			j++;
+		}
 		i++;
 	}
-	lst->a->next = lst_new((int)ft_atol(str[0]));
-	i = 1;
+	lst->a = lst_new((int)ft_atol(str[1]));
+	i = 2;
 	while (str[i])
 	{
 		if (!lst->a)
@@ -82,11 +84,13 @@ int	control(int argc, char **input, t_push_swap *lst)
 {
 	if (argc == 2)
 	{
-		if (ft_decomprime(input[1], lst) == EXIT_FAILURE)
+		if (ft_decomprime(input[1], lst, 0, 0) == EXIT_FAILURE)
 			return (EXIT_FAILURE);
 	}
 	else
-		if (ft_init(input, lst) == EXIT_FAILURE)
+		if (ft_init(input, lst, 1, 0) == EXIT_FAILURE)
 			return (EXIT_FAILURE);
-	return (EXIT_SUCCESS);
+		return (EXIT_SUCCESS);
 }
+
+//DEBERIA DARLE CALLOC A TODOS LOS NODOS O YA SE HACE????????
