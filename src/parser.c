@@ -6,7 +6,7 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 17:53:03 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/03/12 19:15:59 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/03/12 19:25:53 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ int	ft_decomprime(char *str, t_push_swap *lst, int i, int j)
 	res = ft_split(str, ' ');
 	while (res[i])
 	{
-		j = 0;
-		while (res[i][j++])
+		j = -1;
+		while (res[i][++j])
 			if (ft_isdigit(res[i][j]) == 0)
-				return (print_error());
+				print_error();
 		i++;
 	}
 	lst->a = lst_new((int)ft_atol(res[0]));
