@@ -6,7 +6,7 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 17:53:03 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/03/12 19:25:53 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/03/12 20:16:51 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,24 @@ int	ft_init(char **str, t_push_swap *lst, int i, int j)
 	return (EXIT_SUCCESS);
 }
 
+int	ft_isinputvalid(char **input)
+{
+	int	i;
+	
+	i = 1;
+	while (input[i])
+	{
+		if (input[i][0] == '\0')
+			return (print_error());
+		i++;
+	}
+	return (EXIT_SUCCESS);
+}
+
 int	control(int argc, char **input, t_push_swap *lst)
 {
+	if (ft_isinputvalid(input) == EXIT_FAILURE)
+		return (EXIT_FAILURE);
 	if (argc == 2)
 	{
 		if (ft_decomprime(input[1], lst, 0, 0) == EXIT_FAILURE)
@@ -90,7 +106,5 @@ int	control(int argc, char **input, t_push_swap *lst)
 	else
 		if (ft_init(input, lst, 1, 0) == EXIT_FAILURE)
 			return (EXIT_FAILURE);
-		return (EXIT_SUCCESS);
+	return (EXIT_SUCCESS);
 }
-
-//DEBERIA DARLE CALLOC A TODOS LOS NODOS O YA SE HACE????????
