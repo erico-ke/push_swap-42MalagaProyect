@@ -6,7 +6,7 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 17:53:03 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/03/13 15:55:49 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/03/13 16:35:30 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,11 @@ int	ft_isinputvalid(char **input)
 	return (EXIT_SUCCESS);
 }
 
+int	ft_checkforvalidlst(t_stack a)
+{
+	
+}
+
 int	control(int argc, char **input, t_push_swap *lst)
 {
 	if (ft_isinputvalid(input) == EXIT_FAILURE)
@@ -94,6 +99,7 @@ int	control(int argc, char **input, t_push_swap *lst)
 	else
 		if (ft_init(input, lst, 1, 0) == EXIT_FAILURE)
 			return (EXIT_FAILURE);
-	
+	if (ft_checkforvalidlst() == EXIT_FAILURE)
+		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }
