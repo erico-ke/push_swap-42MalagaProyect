@@ -6,23 +6,11 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 17:53:03 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/03/13 15:35:59 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/03/13 15:55:49 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-t_stack	*lst_new(int content)
-{
-	t_stack	*x;
-
-	x = (t_stack *) malloc (sizeof(t_stack));
-	if (!x)
-		return (NULL);
-	x->content = &content;
-	x->next = NULL;
-	return (x);
-}
 
 int	ft_decomprime(char *str, t_push_swap *lst, int i, int j)
 {
@@ -106,5 +94,6 @@ int	control(int argc, char **input, t_push_swap *lst)
 	else
 		if (ft_init(input, lst, 1, 0) == EXIT_FAILURE)
 			return (EXIT_FAILURE);
+	
 	return (EXIT_SUCCESS);
 }

@@ -6,7 +6,7 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 14:16:11 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/03/12 18:38:47 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/03/13 15:55:44 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,8 @@ int		print_error(void);
 
 /* Utils */
 long	ft_atol(char *nptr);
+
+/* List management */
+t_stack	*lst_new(int content);
 
 #endif
