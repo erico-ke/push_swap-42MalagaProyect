@@ -6,7 +6,7 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 17:53:03 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/03/12 20:16:51 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/03/13 15:35:59 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	ft_decomprime(char *str, t_push_swap *lst, int i, int j)
 		j = -1;
 		while (res[i][++j])
 			if (ft_isdigit(res[i][j]) == 0)
-				print_error();
+				return(EXIT_FAILURE);
 		i++;
 	}
 	lst->a = lst_new((int)ft_atol(res[0]));
@@ -60,7 +60,7 @@ int	ft_init(char **str, t_push_swap *lst, int i, int j)
 		while(str[i][j])
 		{
 			if (ft_isdigit(str[i][j]) == 0)
-				return (print_error());
+				return (EXIT_FAILURE);
 			j++;
 		}
 		i++;
@@ -88,7 +88,7 @@ int	ft_isinputvalid(char **input)
 	while (input[i])
 	{
 		if (input[i][0] == '\0')
-			return (print_error());
+			return (EXIT_FAILURE);
 		i++;
 	}
 	return (EXIT_SUCCESS);
