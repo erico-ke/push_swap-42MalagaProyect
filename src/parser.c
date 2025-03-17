@@ -6,7 +6,7 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 17:53:03 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/03/13 16:35:30 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/03/17 17:09:44 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,9 +82,24 @@ int	ft_isinputvalid(char **input)
 	return (EXIT_SUCCESS);
 }
 
-int	ft_checkforvalidlst(t_stack a)
+int	ft_checkforvalidlst(t_stack *a)
 {
-	
+	t_stack	*tmp;
+
+	tmp = NULL;
+	while (a->next)
+	{
+		tmp = a->next;
+		if (a->content > INT_MAX || a ->content < INT_MIN)
+			return (EXIT_FAILURE);
+		while(tmp->next)
+		{
+			if (a->content == tmp->content)
+				return (EXIT_FAILURE);
+			tmp = tmp->next;
+		}
+		a = a->next;
+	}
 }
 
 int	control(int argc, char **input, t_push_swap *lst)
@@ -99,7 +114,7 @@ int	control(int argc, char **input, t_push_swap *lst)
 	else
 		if (ft_init(input, lst, 1, 0) == EXIT_FAILURE)
 			return (EXIT_FAILURE);
-	if (ft_checkforvalidlst() == EXIT_FAILURE)
+	if (ft_checkforvalidlst(lst->a) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }
