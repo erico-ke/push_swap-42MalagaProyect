@@ -6,7 +6,7 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 17:53:03 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/03/19 19:34:46 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/03/19 21:07:01 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,12 +84,12 @@ int	ft_isinputvalid(char **input)
 	return (EXIT_SUCCESS);
 }
 
-int	ft_checkforvalidlst(t_stack *a)
+int	ft_checkforvalidlst(t_stack *a)//Esta funcion no esta funcionando.... ¿PORQUE? ni idea...
 {
 	t_stack	*tmp;
 
 	tmp = NULL;
-	while (a->next)
+	while (a->next != NULL)
 	{
 		tmp = a->next;
 		if (a->content > INT_MAX || a ->content < INT_MIN)
