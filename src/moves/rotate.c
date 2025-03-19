@@ -1,43 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/19 15:31:14 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/03/19 19:46:20 by erico-ke         ###   ########.fr       */
+/*   Created: 2025/03/19 19:29:23 by erico-ke          #+#    #+#             */
+/*   Updated: 2025/03/19 19:43:45 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static t_stack	*swap(t_stack *stack)
+static t_stack	*rotate(t_stack *stack)
 {
 	t_stack	*tmp;
+	t_stack	*aux;
 
 	tmp = stack;
-	stack = stack->next;
-	tmp->next = stack->next;
+	aux = stack->next;
+	while (stack->next != NULL)
+		stack = stack->next;
+	tmp->next = NULL;
 	stack->next = tmp;
-	return (stack);
+	return (aux);
 }
 
-void	sa(t_push_swap *lst)
+void	ra(t_push_swap	*lst)
 {
-	lst->a = swap(lst->a);
-	ft_printf("sa\n", 1);
+	lst->a = rotate(lst->a);
+	ft_printf("ra\n", 1);
 }
 
-void	sb(t_push_swap *lst)
+void	rb(t_push_swap	*lst)
 {
-	lst->b = swap(lst->b);
-	ft_printf("sb\n", 1);
+	lst->b = rotate(lst->b);
+	ft_printf("rb\n", 1);
 }
 
-void	ss(t_push_swap	*lst)
+void	rr(t_push_swap	*lst)
 {
-	lst->a = swap(lst->a);
-	lst->b = swap(lst->b);
-	ft_printf("ss\n", 1);
+	lst->a = rotate(lst->a);
+	lst->b = rotate(lst->b);
+	ft_printf("rr\n", 1);
 }

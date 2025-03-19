@@ -6,7 +6,7 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 17:53:03 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/03/19 19:20:56 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/03/19 19:34:46 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int	ft_decomprime(char *str, t_push_swap *lst, int i, int j)
 		lst->a = lst->a->next;
 		i++;
 	}
+	lst->a->next = NULL;
 	return (EXIT_SUCCESS);
 }
 
@@ -65,6 +66,7 @@ int	ft_init(char **str, t_push_swap *lst, int i, int j)
 		lst->a = lst->a->next;
 		i++;
 	}
+	lst->a->next = NULL;
 	return (EXIT_SUCCESS);
 }
 
