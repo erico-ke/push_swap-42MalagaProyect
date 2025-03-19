@@ -6,7 +6,7 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 17:53:03 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/03/19 21:07:01 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/03/19 21:07:32 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ int	ft_checkforvalidlst(t_stack *a)//Esta funcion no esta funcionando.... ¿PORQ
 		tmp = a->next;
 		if (a->content > INT_MAX || a ->content < INT_MIN)
 			return (EXIT_FAILURE);
-		while(tmp->next)
+		while(tmp->next != NULL)
 		{
 			if (a->content == tmp->content)
 				return (EXIT_FAILURE);
