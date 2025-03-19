@@ -6,7 +6,7 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 14:16:11 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/03/19 19:46:53 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/03/19 20:58:34 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,8 @@ void	pb(t_push_swap	*lst);
 void	ra(t_push_swap	*lst);
 void	rb(t_push_swap	*lst);
 void	rr(t_push_swap	*lst);
+void	rra(t_push_swap *lst);
+void	rrb(t_push_swap *lst);
+void	rrr(t_push_swap *lst);
 
 #endif
