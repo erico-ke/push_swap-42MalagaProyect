@@ -6,11 +6,11 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 19:47:46 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/03/19 20:58:03 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/03/19 21:00:40 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static t_stack	*r_rotate(t_stack *stack)
 {
