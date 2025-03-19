@@ -6,7 +6,7 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 17:53:03 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/03/19 21:17:11 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/03/19 21:18:04 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,10 +112,8 @@ int	control(int argc, char **input, t_push_swap *lst)
 	if (ft_isinputvalid(input) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
 	if (argc == 2)
-	{
 		if (ft_decomprime(input[1], lst, 0, 0) == EXIT_FAILURE)
 			return (EXIT_FAILURE);
-	}
 	else
 		if (ft_init(input, lst, 1, 0) == EXIT_FAILURE)
 			return (EXIT_FAILURE);
