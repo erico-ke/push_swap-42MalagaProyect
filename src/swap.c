@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/02 18:36:25 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/03/19 15:50:36 by erico-ke         ###   ########.fr       */
+/*   Created: 2025/03/19 15:31:14 by erico-ke          #+#    #+#             */
+/*   Updated: 2025/03/19 16:06:32 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-int	ft_lstsize(t_list *lst)
+static t_stack	*swap(t_stack *stack)
 {
-	int	i;
+	t_stack	*tmp;
 
-	i = 0;
-	while (lst)
-	{
-		i++;
-		lst = lst->next;
-	}
-	return (i);
+	tmp = stack;
+	stack = stack->next;
+	tmp->next = stack->next;
+	stack->next = tmp;
+	return (stack);
 }
