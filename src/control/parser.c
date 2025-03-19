@@ -6,7 +6,7 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 17:53:03 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/03/19 21:07:49 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/03/19 21:17:11 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,18 +83,20 @@ int	ft_isinputvalid(char **input)
 	}
 	return (EXIT_SUCCESS);
 }
-
-int	ft_checkforvalidlst(t_stack *a)//Esta funcion no esta funcionando.... ¿PORQUE? ni idea...
+//Esta funcion no esta funcionando.... ¿PORQUE? ni idea...
+//LOS SACKS NO SE ESTAN GENERANDO BIEN?????????????????????????
+//WTF
+int	ft_checkforvalidlst(t_stack *a)
 {
 	t_stack	*tmp;
 
 	tmp = NULL;
-	while (a->next != NULL)
+	while (a)
 	{
 		tmp = a->next;
 		if (a->content > INT_MAX || a->content < INT_MIN)
 			return (EXIT_FAILURE);
-		while(tmp->next != NULL)
+		while(tmp)
 		{
 			if (a->content == tmp->content)
 				return (EXIT_FAILURE);
