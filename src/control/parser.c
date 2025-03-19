@@ -6,11 +6,11 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 17:53:03 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/03/17 17:09:44 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/03/19 19:05:54 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	ft_decomprime(char *str, t_push_swap *lst, int i, int j)
 {
@@ -100,6 +100,7 @@ int	ft_checkforvalidlst(t_stack *a)
 		}
 		a = a->next;
 	}
+	return (EXIT_SUCCESS);
 }
 
 int	control(int argc, char **input, t_push_swap *lst)

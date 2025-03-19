@@ -6,11 +6,11 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 18:35:39 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/03/19 15:51:54 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/03/19 19:04:14 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 long	ft_atol(char *nptr)
 {
@@ -39,17 +39,4 @@ long	ft_atol(char *nptr)
 		i++;
 	}
 	return (res * neg);
-}
-
-int	ft_lst_size(t_stack *lst)
-{
-	int	i;
-
-	i = 0;
-	while (lst)
-	{
-		i++;
-		lst = lst->next;
-	}
-	return (i);
 }

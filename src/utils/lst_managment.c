@@ -1,24 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   lst_managment.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/19 15:31:14 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/03/19 16:06:32 by erico-ke         ###   ########.fr       */
+/*   Created: 2025/03/13 15:54:47 by erico-ke          #+#    #+#             */
+/*   Updated: 2025/03/19 19:07:05 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-static t_stack	*swap(t_stack *stack)
+t_stack	*lst_new(int content)
 {
-	t_stack	*tmp;
+	t_stack	*x;
 
-	tmp = stack;
-	stack = stack->next;
-	tmp->next = stack->next;
-	stack->next = tmp;
-	return (stack);
+	x = (t_stack *) malloc (sizeof(t_stack));
+	if (!x)
+		return (NULL);
+	x->content = content;
+	x->next = NULL;
+	return (x);
+}
+
+int	ft_lst_size(t_stack *lst)
+{
+	int	i;
+
+	i = 0;
+	while (lst)
+	{
+		i++;
+		lst = lst->next;
+	}
+	return (i);
 }

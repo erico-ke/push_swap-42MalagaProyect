@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lst_managment.c                                    :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/13 15:54:47 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/03/13 15:55:21 by erico-ke         ###   ########.fr       */
+/*   Created: 2025/03/05 18:10:04 by erico-ke          #+#    #+#             */
+/*   Updated: 2025/03/19 19:04:07 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-t_stack	*lst_new(int content)
+int	print_error(void)
 {
-	t_stack	*x;
-
-	x = (t_stack *) malloc (sizeof(t_stack));
-	if (!x)
-		return (NULL);
-	x->content = &content;
-	x->next = NULL;
-	return (x);
+	ft_printf("%s\n", 2, "Error");
+	return (EXIT_FAILURE);
 }
