@@ -6,25 +6,39 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 17:53:03 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/03/20 13:41:32 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/03/20 18:21:23 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	ft_decomprime(char *str, t_push_swap *lst, int i, int j)
+int	ft_check_util(char **str, int i)
+{
+	int	j;
+
+	while (str[++i])
+	{
+		j = -1;
+		while(str[i][++j])
+		{
+			if ((str[i][j] == '-' || str[i][j] == '+')
+			&& ft_isdigit(str[i][j + 1]))
+				j++;
+			else if (ft_isdigit(str[i][j]) == 0)
+				return (EXIT_FAILURE);
+		}
+	}
+	return (EXIT_SUCCESS);
+}
+
+int	ft_decomprime(char *str, t_push_swap *lst, int i)
 {
 	char	**res;
 	t_stack	*tmp;
 	
 	res = ft_split(str, ' ');
-	while (res[++i])
-	{
-		j = -1;
-		while (res[i][++j])
-			if (ft_isdigit(res[i][j]) == 0)
-				return(EXIT_FAILURE);
-	}
+	if (ft_check_util(res, i) == EXIT_FAILURE)
+		return (EXIT_FAILURE);
 	lst->a = lst_new(ft_atol(res[0]));
 	tmp = lst->a;
 	i = 0;
@@ -37,20 +51,16 @@ int	ft_decomprime(char *str, t_push_swap *lst, int i, int j)
 			return (EXIT_FAILURE);
 		tmp = tmp->next;
 	}
+	free(res);
 	return (EXIT_SUCCESS);
 }
 
-int	ft_init(char **str, t_push_swap *lst, int i, int j)
+int	ft_init(char **str, t_push_swap *lst, int i)
 {
 	t_stack	*tmp;
 
-	while (str[++i])
-	{
-		j = -1;
-		while(str[i][++j])
-			if (ft_isdigit(str[i][j]) == 0)
-				return (EXIT_FAILURE);
-	}
+	if (ft_check_util(str, i) == EXIT_FAILURE)
+		return (EXIT_FAILURE);
 	lst->a = lst_new(ft_atol(str[1]));
 	tmp = lst->a;
 	i = 1;
@@ -79,9 +89,7 @@ int	ft_isinputvalid(char **input)
 	}
 	return (EXIT_SUCCESS);
 }
-//Esta funcion no esta funcionando.... ¿PORQUE? ni idea...
-//LOS SACKS NO SE ESTAN GENERANDO BIEN?????????????????????????
-//WTF
+
 int	ft_checkforvalidlst(t_stack *a)
 {
 	t_stack	*tmp;
@@ -109,11 +117,11 @@ int	control(int argc, char **input, t_push_swap *lst)
 		return (EXIT_FAILURE);
 	if (argc == 2)
 	{
-		if (ft_decomprime(input[1], lst, -1, 0) == EXIT_FAILURE)
+		if (ft_decomprime(input[1], lst, -1) == EXIT_FAILURE)
 			return (EXIT_FAILURE);
 	}
 	else
-		if (ft_init(input, lst, 0, 0) == EXIT_FAILURE)
+		if (ft_init(input, lst, 0) == EXIT_FAILURE)
 			return (EXIT_FAILURE);
 	if (ft_checkforvalidlst(lst->a) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
