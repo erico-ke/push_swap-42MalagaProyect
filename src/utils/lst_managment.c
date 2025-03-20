@@ -6,13 +6,13 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 15:54:47 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/03/19 19:07:05 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/03/20 13:41:37 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-t_stack	*lst_new(int content)
+t_stack	*lst_new(long long int content)
 {
 	t_stack	*x;
 

@@ -6,7 +6,7 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 17:53:03 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/03/20 13:17:35 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/03/20 13:41:32 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,6 +118,5 @@ int	control(int argc, char **input, t_push_swap *lst)
 	if (ft_checkforvalidlst(lst->a) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
 	lst->b = NULL;
-	printf("%ld\n", lst->a->next->content);
 	return (EXIT_SUCCESS);
 }

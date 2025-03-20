@@ -6,7 +6,7 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 14:16:11 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/03/20 13:14:24 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/03/20 13:40:51 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 typedef struct s_stack
 {
-	long			content;
+	long long int	content;
 	struct s_stack	*next;
 }	t_stack;
 
@@ -33,10 +33,10 @@ int		control(int argc, char **input, t_push_swap *stu);
 int		print_error(void);
 
 /* Utils */
-long	ft_atol(char *nptr);
+long long int	ft_atol(char *s);
 
 /* List management */
-t_stack	*lst_new(int content);
+t_stack	*lst_new(long long int content);
 int		ft_lst_size(t_stack *lst);
 
 /* Movements */
