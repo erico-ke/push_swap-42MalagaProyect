@@ -6,7 +6,7 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 14:16:11 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/03/20 13:40:51 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/03/20 18:22:23 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,29 +27,30 @@ typedef struct s_push_swap
 }	t_push_swap;
 
 /* Parse */
-int		control(int argc, char **input, t_push_swap *stu);
+int				control(int argc, char **input, t_push_swap *stu);
 
 /* Error control and output */
-int		print_error(void);
+int				print_error(void);
 
 /* Utils */
 long long int	ft_atol(char *s);
+int				ft_check_util(char **str, int i);
 
 /* List management */
-t_stack	*lst_new(long long int content);
-int		ft_lst_size(t_stack *lst);
+t_stack			*lst_new(long long int content);
+int				ft_lst_size(t_stack *lst);
 
 /* Movements */
-void	sa(t_push_swap *lst);
-void	sb(t_push_swap *lst);
-void	ss(t_push_swap	*lst);
-void	pa(t_push_swap	*lst);
-void	pb(t_push_swap	*lst);
-void	ra(t_push_swap	*lst);
-void	rb(t_push_swap	*lst);
-void	rr(t_push_swap	*lst);
-void	rra(t_push_swap *lst);
-void	rrb(t_push_swap *lst);
-void	rrr(t_push_swap *lst);
+void			sa(t_push_swap *lst);
+void			sb(t_push_swap *lst);
+void			ss(t_push_swap	*lst);
+void			pa(t_push_swap	*lst);
+void			pb(t_push_swap	*lst);
+void			ra(t_push_swap	*lst);
+void			rb(t_push_swap	*lst);
+void			rr(t_push_swap	*lst);
+void			rra(t_push_swap *lst);
+void			rrb(t_push_swap *lst);
+void			rrr(t_push_swap *lst);
 
 #endif

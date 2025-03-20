@@ -6,30 +6,11 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 17:53:03 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/03/20 18:21:23 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/03/20 18:21:49 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-int	ft_check_util(char **str, int i)
-{
-	int	j;
-
-	while (str[++i])
-	{
-		j = -1;
-		while(str[i][++j])
-		{
-			if ((str[i][j] == '-' || str[i][j] == '+')
-			&& ft_isdigit(str[i][j + 1]))
-				j++;
-			else if (ft_isdigit(str[i][j]) == 0)
-				return (EXIT_FAILURE);
-		}
-	}
-	return (EXIT_SUCCESS);
-}
 
 int	ft_decomprime(char *str, t_push_swap *lst, int i)
 {
