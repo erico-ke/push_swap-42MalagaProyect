@@ -6,7 +6,7 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 14:16:11 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/03/19 20:58:34 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/03/20 13:14:24 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 typedef struct s_stack
 {
-	int				content;
+	long			content;
 	struct s_stack	*next;
 }	t_stack;
 

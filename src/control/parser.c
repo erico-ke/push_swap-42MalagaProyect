@@ -6,7 +6,7 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 17:53:03 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/03/19 21:18:04 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/03/20 13:17:35 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,58 +15,54 @@
 int	ft_decomprime(char *str, t_push_swap *lst, int i, int j)
 {
 	char	**res;
+	t_stack	*tmp;
 	
 	res = ft_split(str, ' ');
-	while (res[i])
+	while (res[++i])
 	{
 		j = -1;
 		while (res[i][++j])
 			if (ft_isdigit(res[i][j]) == 0)
 				return(EXIT_FAILURE);
-		i++;
 	}
-	lst->a = lst_new((int)ft_atol(res[0]));
-	i = 1;
-	while (res[i])
+	lst->a = lst_new(ft_atol(res[0]));
+	tmp = lst->a;
+	i = 0;
+	while (res[++i])
 	{
-		if (!lst->a)
+		if (!tmp)
 			return (EXIT_FAILURE);
-		lst->a->next = lst_new((int)ft_atol(res[i]));
-		if (!lst->a->next)
+		tmp->next = lst_new(ft_atol(res[i]));
+		if (!tmp->next)
 			return (EXIT_FAILURE);
-		lst->a = lst->a->next;
-		i++;
+		tmp = tmp->next;
 	}
-	lst->a->next = NULL;
 	return (EXIT_SUCCESS);
 }
 
 int	ft_init(char **str, t_push_swap *lst, int i, int j)
 {
-	while (str[i])
+	t_stack	*tmp;
+
+	while (str[++i])
 	{
-		j = 0;
-		while(str[i][j])
-		{
+		j = -1;
+		while(str[i][++j])
 			if (ft_isdigit(str[i][j]) == 0)
 				return (EXIT_FAILURE);
-			j++;
-		}
-		i++;
 	}
-	lst->a = lst_new((int)ft_atol(str[1]));
-	i = 2;
-	while (str[i])
+	lst->a = lst_new(ft_atol(str[1]));
+	tmp = lst->a;
+	i = 1;
+	while (str[++i])
 	{
-		if (!lst->a)
+		if (!tmp)
 			return (EXIT_FAILURE);
-		lst->a->next = lst_new((int)ft_atol(str[i]));
-		if (!lst->a->next)
+		tmp->next = lst_new(ft_atol(str[i]));
+		if (!tmp->next)
 			return (EXIT_FAILURE);
-		lst->a = lst->a->next;
-		i++;
+		tmp = tmp->next;
 	}
-	lst->a->next = NULL;
 	return (EXIT_SUCCESS);
 }
 
@@ -112,13 +108,16 @@ int	control(int argc, char **input, t_push_swap *lst)
 	if (ft_isinputvalid(input) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
 	if (argc == 2)
-		if (ft_decomprime(input[1], lst, 0, 0) == EXIT_FAILURE)
+	{
+		if (ft_decomprime(input[1], lst, -1, 0) == EXIT_FAILURE)
 			return (EXIT_FAILURE);
+	}
 	else
-		if (ft_init(input, lst, 1, 0) == EXIT_FAILURE)
+		if (ft_init(input, lst, 0, 0) == EXIT_FAILURE)
 			return (EXIT_FAILURE);
 	if (ft_checkforvalidlst(lst->a) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
 	lst->b = NULL;
+	printf("%ld\n", lst->a->next->content);
 	return (EXIT_SUCCESS);
 }
