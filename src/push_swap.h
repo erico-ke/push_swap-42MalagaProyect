@@ -6,7 +6,7 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 14:16:11 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/03/20 18:22:23 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/03/20 18:35:53 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int				control(int argc, char **input, t_push_swap *stu);
 
 /* Error control and output */
 int				print_error(void);
+void			ft_freemen(t_push_swap *lst);
 
 /* Utils */
 long long int	ft_atol(char *s);
