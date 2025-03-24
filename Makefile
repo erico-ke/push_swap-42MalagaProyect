@@ -9,7 +9,8 @@ LIBFT = $(LIBFT_PATH)/libft.a
 HEADERS = -I ./libs -I $(LIBFT_PATH)
 
 SRCS =	src/main.c src/control/parser.c src/utils/error.c src/utils/utils.c src/utils/lst_managment.c \
-		src/moves/push.c src/moves/r_rotate.c src/moves/rotate.c src/moves/swap.c
+		src/moves/push.c src/moves/r_rotate.c src/moves/rotate.c src/moves/swap.c src/algorithm/is_sorted.c \
+		src/algorithm/setter.c
 
 OBJS = $(SRCS:$(SRCDIR)%.c=$(OBJDIR)%.o)
 SRCDIR = src/

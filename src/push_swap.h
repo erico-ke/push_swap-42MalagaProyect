@@ -6,7 +6,7 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 14:16:11 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/03/24 14:37:39 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/03/24 16:51:57 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 typedef struct s_stack
 {
 	long long int	content;
+	int				index;
+	int				cost;
+	struct s_stack	*objetive_node;
 	struct s_stack	*next;
 }	t_stack;
 
@@ -54,5 +57,9 @@ void			rr(t_push_swap	*lst);
 void			rra(t_push_swap *lst);
 void			rrb(t_push_swap *lst);
 void			rrr(t_push_swap *lst);
+
+/* Algorithm */
+int				ft_issorted(t_stack	*lst);
+void			set_index(t_stack *lst);
 
 #endif
