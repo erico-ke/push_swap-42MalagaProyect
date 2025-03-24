@@ -6,7 +6,7 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 19:47:46 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/03/19 21:00:40 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/03/24 15:02:38 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static t_stack	*r_rotate(t_stack *stack)
 	while (stack->next->next != NULL)
 		stack = stack->next;
 	stack->next->next = tmp;
-	tmp = stack->next->next;
+	tmp = stack->next;
 	stack->next = NULL;
 	return (tmp);
 }

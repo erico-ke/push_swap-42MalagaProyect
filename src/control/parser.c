@@ -6,7 +6,7 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 17:53:03 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/03/20 18:24:54 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/03/24 14:39:15 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,21 @@ int	ft_decomprime(char *str, t_push_swap *lst, int i)
 	
 	res = ft_split(str, ' ');
 	if (ft_check_util(res, i) == EXIT_FAILURE)
-		return (EXIT_FAILURE);
+		return (ft_freesplit(res));
 	lst->a = lst_new(ft_atol(res[0]));
 	tmp = lst->a;
 	i = 0;
 	while (res[++i])
 	{
 		if (!tmp)
-			return (EXIT_FAILURE);
+			return (ft_freesplit(res));
 		tmp->next = lst_new(ft_atol(res[i]));
 		if (!tmp->next)
-			return (EXIT_FAILURE);
+			return (ft_freesplit(res));
 		tmp = tmp->next;
 	}
-	free(res);
+	i = -1;
+	ft_freesplit(res);
 	return (EXIT_SUCCESS);
 }
 

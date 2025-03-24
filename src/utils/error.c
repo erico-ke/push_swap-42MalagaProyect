@@ -6,7 +6,7 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 18:10:04 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/03/20 18:35:35 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/03/24 14:40:12 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,15 @@ void	ft_freemen(t_push_swap *lst)
 		free(tmp);	
 	}
 	free(lst);
+}
+
+int ft_freesplit(char **str)
+{
+	int	i;
+
+	i = -1;
+	while (str[++i])
+		free (str[i]);
+	free (str);
+	return (EXIT_FAILURE);
 }
