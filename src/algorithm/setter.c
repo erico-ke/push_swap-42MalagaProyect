@@ -6,7 +6,7 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 16:28:42 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/03/25 17:27:17 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/03/25 18:17:51 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,28 @@ void	set_belowboolean(t_stack *stack)
 			tmp->below = false;
 		else
 			tmp->below = true;
+	}
+}
+
+void	set_cost(t_stack *stack)
+{
+	t_stack	*tmp;
+
+	tmp = stack;
+	while (tmp)
+	{
+		if (tmp->below == false && tmp->objetive_node->below == false)
+			tmp->cost = (tmp->index - tmp->objetive_node->index);
+		else if (tmp->below == true && tmp->objetive_node->below == true)
+			tmp->cost = ft_lst_size(tmp) - ft_lst_size(tmp->objetive_node);
+		else if (tmp->below == false && tmp->objetive_node->below == true)
+			tmp->cost = tmp->index + ft_lst_size(tmp->objetive_node);
+		else
+			tmp->cost = ft_lst_size(tmp) + tmp->objetive_node->index;
+		if (tmp->cost < 0)
+			tmp->cost = (tmp->cost * (-1)) + 1;
+		else
+			tmp->cost += 1;
+		tmp = tmp->next;
 	}
 }

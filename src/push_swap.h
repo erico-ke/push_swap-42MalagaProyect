@@ -6,7 +6,7 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 14:16:11 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/03/25 16:57:46 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/03/25 18:21:43 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,7 @@ int				ft_issorted(t_stack *lst);
 void			set_index(t_stack *lst);
 void			set_objetive_node(t_push_swap *lst);
 void			ft_push_swap(t_push_swap *lst);
+void			set_belowboolean(t_stack *stack);
+void			set_cost(t_stack *stack);
 
 #endif
