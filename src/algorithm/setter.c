@@ -6,7 +6,7 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 16:28:42 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/03/24 18:25:42 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/03/25 16:08:40 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,18 +37,16 @@ void	set_objetive_node(t_push_swap *lst)
 	while (tmpb)
 	{
 		tmpa = lst->a;
-		cont = tmpa->content;
+		cont = tmpb->content;
 		while (tmpa)
 		{
-			if ((tmpb->content < tmpa->content && tmpb->content > cont)
-			|| tmpa->next == NULL)
-			{
+			if ((tmpb->content < tmpa->content && tmpb->content >= cont))
 				tmpb->objetive_node = tmpa;
-				break ;
-			}
+			if (!tmpb->objetive_node && !tmpa->next)
+				tmpb->objetive_node = lst->a;
 			cont = tmpa->content;
 			tmpa = tmpa->next;
 		}
 		tmpb = tmpb->next;
 	}
-}//checkear que funcione bien esto
+}

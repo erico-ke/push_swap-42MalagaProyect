@@ -6,7 +6,7 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 14:16:11 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/03/24 16:51:57 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/03/25 15:49:32 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,7 @@ void			rrr(t_push_swap *lst);
 /* Algorithm */
 int				ft_issorted(t_stack	*lst);
 void			set_index(t_stack *lst);
+void			set_objetive_node(t_push_swap *lst);
+void			ft_push_swap(t_push_swap *lst);
 
 #endif

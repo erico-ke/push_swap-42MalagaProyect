@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/04 14:16:08 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/03/25 15:50:05 by erico-ke         ###   ########.fr       */
+/*   Created: 2025/03/25 15:43:54 by erico-ke          #+#    #+#             */
+/*   Updated: 2025/03/25 16:00:31 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-int	main(int argc, char **argv)
+void	ft_push_swap(t_push_swap *lst)
 {
-	t_push_swap	*lst;
-
-	if (argc >= 2)
+	pb(lst);
+	pb(lst);
+	set_index(lst->a);
+	set_index(lst->b);
+	set_objetive_node(lst);
+	int i = 0;
+	while (lst->b)
 	{
-		lst = ft_calloc(1, sizeof(t_push_swap));
-		if (control(argc, argv, lst) == EXIT_FAILURE)
-			return (ft_freemen(lst), print_error());
-		ft_push_swap(lst);
-		ft_freemen(lst);
+		printf("iteracion %d:\nobjetive node index:%d\n", i, lst->b->objetive_node->index);
+		printf("actual node in stack b content:%lld\n\n", lst->b->content);
+		lst->b = lst->b->next;
+		i++;
 	}
-	else
-		return (print_error());
-	return (EXIT_SUCCESS);
 }
