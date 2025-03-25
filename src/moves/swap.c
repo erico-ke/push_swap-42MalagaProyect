@@ -6,7 +6,7 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 15:31:14 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/03/19 19:46:20 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/03/25 16:58:36 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	sb(t_push_swap *lst)
 	ft_printf("sb\n", 1);
 }
 
-void	ss(t_push_swap	*lst)
+void	ss(t_push_swap *lst)
 {
 	lst->a = swap(lst->a);
 	lst->b = swap(lst->b);

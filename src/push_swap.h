@@ -6,19 +6,21 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 14:16:11 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/03/25 15:49:32 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/03/25 16:57:46 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include "../libs/libft/src/libft.h"
+# include <stdbool.h>
 
 typedef struct s_stack
 {
 	long long int	content;
 	int				index;
 	int				cost;
+	bool			below;
 	struct s_stack	*objetive_node;
 	struct s_stack	*next;
 }	t_stack;
@@ -48,18 +50,18 @@ int				ft_lst_size(t_stack *lst);
 /* Movements */
 void			sa(t_push_swap *lst);
 void			sb(t_push_swap *lst);
-void			ss(t_push_swap	*lst);
-void			pa(t_push_swap	*lst);
-void			pb(t_push_swap	*lst);
-void			ra(t_push_swap	*lst);
-void			rb(t_push_swap	*lst);
-void			rr(t_push_swap	*lst);
+void			ss(t_push_swap *lst);
+void			pa(t_push_swap *lst);
+void			pb(t_push_swap *lst);
+void			ra(t_push_swap *lst);
+void			rb(t_push_swap *lst);
+void			rr(t_push_swap *lst);
 void			rra(t_push_swap *lst);
 void			rrb(t_push_swap *lst);
 void			rrr(t_push_swap *lst);
 
 /* Algorithm */
-int				ft_issorted(t_stack	*lst);
+int				ft_issorted(t_stack *lst);
 void			set_index(t_stack *lst);
 void			set_objetive_node(t_push_swap *lst);
 void			ft_push_swap(t_push_swap *lst);

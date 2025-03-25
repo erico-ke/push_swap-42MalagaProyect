@@ -6,7 +6,7 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 16:28:42 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/03/25 16:08:40 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/03/25 16:58:05 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,18 @@ void	set_objetive_node(t_push_swap *lst)
 			tmpa = tmpa->next;
 		}
 		tmpb = tmpb->next;
+	}
+}
+
+void	set_belowboolean(t_stack *stack)
+{
+	int		stack_size;
+	t_stack	*tmp;
+
+	stack_size = ft_lst_size(stack);
+	tmp = stack;
+	while (tmp)
+	{
+		
 	}
 }

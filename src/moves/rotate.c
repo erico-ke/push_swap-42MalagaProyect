@@ -6,7 +6,7 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 19:29:23 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/03/19 19:43:45 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/03/25 16:58:26 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,19 @@ static t_stack	*rotate(t_stack *stack)
 	return (aux);
 }
 
-void	ra(t_push_swap	*lst)
+void	ra(t_push_swap *lst)
 {
 	lst->a = rotate(lst->a);
 	ft_printf("ra\n", 1);
 }
 
-void	rb(t_push_swap	*lst)
+void	rb(t_push_swap *lst)
 {
 	lst->b = rotate(lst->b);
 	ft_printf("rb\n", 1);
 }
 
-void	rr(t_push_swap	*lst)
+void	rr(t_push_swap *lst)
 {
 	lst->a = rotate(lst->a);
 	lst->b = rotate(lst->b);

@@ -6,13 +6,13 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 18:54:45 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/03/19 19:41:06 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/03/25 16:58:13 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	pb(t_push_swap	*lst)
+void	pb(t_push_swap *lst)
 {
 	t_stack	*tmp;
 	
@@ -23,7 +23,7 @@ void	pb(t_push_swap	*lst)
 	ft_printf("pb\n", 1);
 }
 
-void	pa(t_push_swap	*lst)
+void	pa(t_push_swap *lst)
 {
 	t_stack	*tmp;
 	
