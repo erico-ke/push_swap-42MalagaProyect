@@ -6,7 +6,7 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 14:16:11 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/03/26 15:20:05 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/03/26 15:38:13 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,45 +27,45 @@ typedef struct s_stack
 
 typedef struct s_push_swap
 {
-	t_stack	*a;
-	t_stack	*b;
+	t_stack			*a;
+	t_stack			*b;
 }	t_push_swap;
 
 /* Parse */
-int				control(int argc, char **input, t_push_swap *stu);
+int					control(int argc, char **input, t_push_swap *stu);
 
 /* Error control and output */
-int				print_error(void);
-void			ft_freemen(t_push_swap *lst);
-int 			ft_freesplit(char **str);
+int					print_error(void);
+void				ft_freemen(t_push_swap *lst);
+int 				ft_freesplit(char **str);
 
 /* Utils */
-long long int	ft_atol(char *s);
-int				ft_check_util(char **str, int i);
+long long int		ft_atol(char *s);
+int					ft_check_util(char **str, int i);
 
 /* List management */
-t_stack			*lst_new(long long int content);
-int				ft_lst_size(t_stack *lst);
+t_stack				*lst_new(long long int content);
+int					ft_lst_size(t_stack *lst);
 
 /* Movements */
-void			sa(t_push_swap *lst);
-void			sb(t_push_swap *lst);
-void			ss(t_push_swap *lst);
-void			pa(t_push_swap *lst);
-void			pb(t_push_swap *lst);
-void			ra(t_push_swap *lst);
-void			rb(t_push_swap *lst);
-void			rr(t_push_swap *lst);
-void			rra(t_push_swap *lst);
-void			rrb(t_push_swap *lst);
-void			rrr(t_push_swap *lst);
+void				sa(t_push_swap *lst);
+void				sb(t_push_swap *lst);
+void				ss(t_push_swap *lst);
+void				pa(t_push_swap *lst);
+void				pb(t_push_swap *lst);
+void				ra(t_push_swap *lst);
+void				rb(t_push_swap *lst);
+void				rr(t_push_swap *lst);
+void				rra(t_push_swap *lst);
+void				rrb(t_push_swap *lst);
+void				rrr(t_push_swap *lst);
 
 /* Algorithm */
-int				ft_issorted(t_stack *lst);
-void			set_index(t_stack *lst);
-void			set_objetive_node(t_push_swap *lst);
-void			ft_push_swap(t_push_swap *lst);
-void			set_belowboolean(t_stack *stack);
-void			set_cost(t_stack *stack);
+int					ft_issorted(t_stack *lst);
+void				set_index(t_stack *lst);
+void				set_objetive_node(t_push_swap *lst);
+void				ft_push_swap(t_push_swap *lst);
+void				set_belowboolean(t_stack *stack);
+void				set_cost(t_stack *stack);
 
 #endif
