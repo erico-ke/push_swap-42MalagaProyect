@@ -6,7 +6,7 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 16:28:42 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/03/25 18:23:32 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/03/26 14:15:32 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ void	set_belowboolean(t_stack *stack)
 			tmp->below = false;
 		else
 			tmp->below = true;
+		tmp = tmp->next;
 	}
 }
 
