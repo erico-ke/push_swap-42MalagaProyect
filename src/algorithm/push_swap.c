@@ -6,7 +6,7 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 15:43:54 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/03/26 15:21:21 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/03/31 18:28:52 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,36 @@ void	tiny_sort(t_push_swap *lst)
 		sa(lst);
 }
 
+t_stack	*cheapest(t_stack *stack)
+{
+	t_stack	*cheapest;
+	t_stack	*tmp;
+
+	cheapest = stack;
+	tmp = stack;
+	while (tmp)
+	{
+		if (tmp->cost < cheapest->cost)
+			cheapest = tmp;
+		tmp = tmp->next;
+	}
+	return (cheapest);
+}
+
 void	ft_push_swap(t_push_swap *lst)
 {
+	t_stack	*cheapest;
+
 	do_pb(lst);
 	tiny_sort(lst);
-	
+	while (ft_lst_size(lst->b) > 0)
+	{
+		set_index(lst->b);
+		set_index(lst->a);
+		set_belowboolean(lst->b);
+		set_belowboolean(lst->a);
+		set_objetive_node(lst->b),
+		set_cost(lst->b);
+		cheapest = ft_cheapest(lst->b);
+	}
 }
