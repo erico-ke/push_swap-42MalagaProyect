@@ -6,7 +6,7 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 15:43:54 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/03/31 18:28:52 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/04/01 13:17:24 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	tiny_sort(t_push_swap *lst)
 		sa(lst);
 }
 
-t_stack	*cheapest(t_stack *stack)
+t_stack	*ft_cheapest(t_stack *stack)
 {
 	t_stack	*cheapest;
 	t_stack	*tmp;
@@ -57,6 +57,19 @@ t_stack	*cheapest(t_stack *stack)
 	return (cheapest);
 }
 
+void	sort_cheapest(t_stack *cheapest, t_push_swap *lst)
+{
+	while (cheapest != lst->b && cheapest->objetive_node != lst->a)
+	{
+		if (cheapest->below == true && cheapest->objetive_node->below == true)
+			rrr(lst);
+		if (cheapest->below == false && cheapest->objetive_node->below == false)
+			rr(lst);
+	}
+	
+	pa(lst);
+}
+
 void	ft_push_swap(t_push_swap *lst)
 {
 	t_stack	*cheapest;
@@ -69,8 +82,9 @@ void	ft_push_swap(t_push_swap *lst)
 		set_index(lst->a);
 		set_belowboolean(lst->b);
 		set_belowboolean(lst->a);
-		set_objetive_node(lst->b),
+		set_objetive_node(lst),
 		set_cost(lst->b);
 		cheapest = ft_cheapest(lst->b);
+		sort_cheapest(cheapest, lst);
 	}
 }
