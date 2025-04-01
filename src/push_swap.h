@@ -6,7 +6,7 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 14:16:11 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/03/26 15:38:13 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/04/01 16:45:38 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ typedef struct s_stack
 	int				index;
 	int				cost;
 	bool			below;
-	struct s_stack	*objetive_node;
+	struct s_stack	*obj_node;
 	struct s_stack	*next;
 }	t_stack;
 
@@ -63,9 +63,10 @@ void				rrr(t_push_swap *lst);
 /* Algorithm */
 int					ft_issorted(t_stack *lst);
 void				set_index(t_stack *lst);
-void				set_objetive_node(t_push_swap *lst);
+void				set_obj_node(t_push_swap *lst);
 void				ft_push_swap(t_push_swap *lst);
 void				set_belowboolean(t_stack *stack);
 void				set_cost(t_stack *stack);
+t_stack				*ft_search_smallest(t_stack *stack);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 16:28:42 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/03/26 14:15:32 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/04/01 16:57:12 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	set_index(t_stack *lst)
 	}
 }
 
-void	set_objetive_node(t_push_swap *lst)
+void	set_obj_node(t_push_swap *lst)
 {
 	t_stack			*tmpa;
 	t_stack			*tmpb;
@@ -38,15 +38,16 @@ void	set_objetive_node(t_push_swap *lst)
 	{
 		tmpa = lst->a;
 		cont = tmpb->content;
+		tmpb->obj_node = NULL;
 		while (tmpa)
 		{
-			if ((tmpb->content < tmpa->content && tmpb->content >= cont))
-				tmpb->objetive_node = tmpa;
-			if (!tmpb->objetive_node && !tmpa->next)
-				tmpb->objetive_node = lst->a;
+			if ((tmpb->content < tmpa->content && tmpb->content > cont))
+				tmpb->obj_node = tmpa;
 			cont = tmpa->content;
 			tmpa = tmpa->next;
 		}
+		if (!tmpb->obj_node)
+			tmpb->obj_node = ft_search_smallest(lst->a);
 		tmpb = tmpb->next;
 	}
 }
@@ -60,12 +61,20 @@ void	set_belowboolean(t_stack *stack)
 	tmp = stack;
 	while (tmp)
 	{
-		if (tmp->index <= stack_size)
+		if (tmp->index < stack_size)
 			tmp->below = false;
 		else
 			tmp->below = true;
 		tmp = tmp->next;
 	}
+}
+
+int	get_big(int first, int second)
+{
+	if (first > second)
+		return (first);
+	else
+		return (second);
 }
 
 void	set_cost(t_stack *stack)
@@ -75,18 +84,14 @@ void	set_cost(t_stack *stack)
 	tmp = stack;
 	while (tmp)
 	{
-		if (tmp->below == false && tmp->objetive_node->below == false)
-			tmp->cost = (tmp->index - tmp->objetive_node->index);
-		else if (tmp->below == true && tmp->objetive_node->below == true)
-			tmp->cost = ft_lst_size(tmp) - ft_lst_size(tmp->objetive_node);
-		else if (tmp->below == false && tmp->objetive_node->below == true)
-			tmp->cost = tmp->index + ft_lst_size(tmp->objetive_node);
+		if (tmp->below == false && tmp->obj_node->below == false)
+			tmp->cost = get_big(tmp->index, tmp->obj_node->index);
+		else if (tmp->below == true && tmp->obj_node->below == true)
+			tmp->cost = get_big(ft_lst_size(tmp), ft_lst_size(tmp->obj_node));
+		else if (tmp->below == false && tmp->obj_node->below == true)
+			tmp->cost = tmp->index + ft_lst_size(tmp->obj_node);
 		else
-			tmp->cost = ft_lst_size(tmp) + tmp->objetive_node->index;
-		if (tmp->cost < 0)
-			tmp->cost = (tmp->cost * (-1)) + 1;
-		else
-			tmp->cost += 1;
+			tmp->cost = ft_lst_size(tmp) + tmp->obj_node->index;
 		tmp = tmp->next;
 	}
 }

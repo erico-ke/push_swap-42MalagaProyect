@@ -6,7 +6,7 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 15:43:54 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/04/01 13:17:24 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/04/01 18:41:23 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,21 +20,21 @@ void	do_pb(t_push_swap *lst)
 
 void	tiny_sort(t_push_swap *lst)
 {
-	t_stack	*highest_node;
+	t_stack	*highest_stack;
 	t_stack	*tmp;
 
 	tmp = lst->a;
-	highest_node = tmp;
+	highest_stack = tmp;
 	while (tmp)
 	{
-		if (highest_node->content < tmp->content)
-			highest_node = tmp;
+		if (highest_stack->content < tmp->content)
+			highest_stack = tmp;
 		tmp = tmp->next;
 	}
 	tmp = lst->a;
-	if (tmp == highest_node)
+	if (tmp == highest_stack)
 		ra(lst);
-	else if (tmp->next == highest_node)
+	else if (tmp->next == highest_stack)
 		rra(lst);
 	tmp = lst->a;
 	if (tmp->content > tmp->next->content)
@@ -59,15 +59,56 @@ t_stack	*ft_cheapest(t_stack *stack)
 
 void	sort_cheapest(t_stack *cheapest, t_push_swap *lst)
 {
-	while (cheapest != lst->b && cheapest->objetive_node != lst->a)
+	while (cheapest != lst->b && cheapest->obj_node != lst->a)
 	{
-		if (cheapest->below == true && cheapest->objetive_node->below == true)
+		if (cheapest->below == true && cheapest->obj_node->below == true)
 			rrr(lst);
-		if (cheapest->below == false && cheapest->objetive_node->below == false)
+		if (cheapest->below == false && cheapest->obj_node->below == false)
 			rr(lst);
+		if (cheapest->below == false && cheapest->obj_node->below == true)
+		{
+			rb(lst);
+			rra(lst);
+		}
+		if (cheapest->below == true && cheapest->obj_node->below == false)
+		{
+			rrb(lst);
+			ra(lst);
+		}
 	}
-	
+	if (cheapest->below == true)
+	{
+		while (cheapest != lst->b)
+			rrb(lst);
+	}
+	else
+		while (cheapest != lst->b)
+			rb(lst);
+	if (cheapest->obj_node->below == true)
+	{
+		while (cheapest->obj_node != lst->a)
+			rra(lst);
+	}
+	else
+		while (cheapest->obj_node != lst->a)
+			ra(lst);
 	pa(lst);
+}
+
+t_stack	*ft_search_smallest(t_stack *stack)
+{
+	t_stack	*tmp;
+	t_stack	*smallest;
+
+	tmp = stack;
+	smallest = stack;
+	while (tmp)
+	{
+		if (smallest->content > tmp->content)
+			smallest = tmp;
+		tmp = tmp->next;
+	}
+	return (smallest);
 }
 
 void	ft_push_swap(t_push_swap *lst)
@@ -82,9 +123,17 @@ void	ft_push_swap(t_push_swap *lst)
 		set_index(lst->a);
 		set_belowboolean(lst->b);
 		set_belowboolean(lst->a);
-		set_objetive_node(lst),
+		set_obj_node(lst),
 		set_cost(lst->b);
 		cheapest = ft_cheapest(lst->b);
 		sort_cheapest(cheapest, lst);
+	}
+	cheapest = ft_search_smallest(lst->a);
+	while (cheapest != lst->a)
+	{
+		if (cheapest->below == true)
+			rra(lst);
+		else
+			ra(lst);
 	}
 }
