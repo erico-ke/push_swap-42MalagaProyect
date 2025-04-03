@@ -6,7 +6,7 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 15:43:54 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/04/03 15:17:48 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/04/03 16:18:38 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,8 @@ void	ft_push_swap(t_push_swap *lst)
 {
 	t_stack	*cheapest;
 
-	do_pb(lst);
+	if (ft_issorted(lst->a) == EXIT_FAILURE)
+		do_pb(lst);
 	tiny_sort(lst);
 	while (ft_lst_size(lst->b) > 0)
 	{
