@@ -6,7 +6,7 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 14:16:08 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/03/26 15:19:55 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/04/03 16:22:20 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,11 @@ int	main(int argc, char **argv)
 		ft_freemen(lst);
 	}
 	else
-		return (print_error());
+	{
+		if (argc == 1)
+			return (EXIT_SUCCESS);
+		else
+			return (print_error());
+	}
 	return (EXIT_SUCCESS);
 }
