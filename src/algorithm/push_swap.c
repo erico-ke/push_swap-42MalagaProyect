@@ -6,19 +6,13 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 15:43:54 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/04/01 18:41:23 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/04/03 15:17:48 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	do_pb(t_push_swap *lst)
-{
-	while (ft_lst_size(lst->a) > 3)
-		pb(lst);
-}
-
-void	tiny_sort(t_push_swap *lst)
+static void	tiny_sort(t_push_swap *lst)
 {
 	t_stack	*highest_stack;
 	t_stack	*tmp;
@@ -41,7 +35,7 @@ void	tiny_sort(t_push_swap *lst)
 		sa(lst);
 }
 
-t_stack	*ft_cheapest(t_stack *stack)
+static t_stack	*ft_cheapest(t_stack *stack)
 {
 	t_stack	*cheapest;
 	t_stack	*tmp;
@@ -57,41 +51,32 @@ t_stack	*ft_cheapest(t_stack *stack)
 	return (cheapest);
 }
 
-void	sort_cheapest(t_stack *cheapest, t_push_swap *lst)
+static void	sort_cheapest(t_stack *cheapest, t_push_swap *lst)
 {
-	while (cheapest != lst->b && cheapest->obj_node != lst->a)
+	if (cheapest->below == true && cheapest->obj_node->below == true)
 	{
-		if (cheapest->below == true && cheapest->obj_node->below == true)
+		while (cheapest != lst->b && cheapest->obj_node != lst->a)
 			rrr(lst);
-		if (cheapest->below == false && cheapest->obj_node->below == false)
+	}
+	else if (cheapest->below == false && cheapest->obj_node->below == false)
+	{
+		while (cheapest != lst->b && cheapest->obj_node != lst->a)
 			rr(lst);
-		if (cheapest->below == false && cheapest->obj_node->below == true)
-		{
-			rb(lst);
-			rra(lst);
-		}
-		if (cheapest->below == true && cheapest->obj_node->below == false)
-		{
-			rrb(lst);
-			ra(lst);
-		}
 	}
-	if (cheapest->below == true)
+	while (cheapest != lst->b)
 	{
-		while (cheapest != lst->b)
+		if (cheapest->below == true)
 			rrb(lst);
-	}
-	else
-		while (cheapest != lst->b)
+		else
 			rb(lst);
-	if (cheapest->obj_node->below == true)
-	{
-		while (cheapest->obj_node != lst->a)
-			rra(lst);
 	}
-	else
-		while (cheapest->obj_node != lst->a)
+	while (cheapest->obj_node != lst->a)
+	{
+		if (cheapest->obj_node->below == true)
+			rra(lst);
+		else
 			ra(lst);
+	}
 	pa(lst);
 }
 

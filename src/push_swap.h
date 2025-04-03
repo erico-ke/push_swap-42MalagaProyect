@@ -6,7 +6,7 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 14:16:11 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/04/01 16:45:38 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/04/03 15:16:38 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int					control(int argc, char **input, t_push_swap *stu);
 /* Error control and output */
 int					print_error(void);
 void				ft_freemen(t_push_swap *lst);
-int 				ft_freesplit(char **str);
+int					ft_freesplit(char **str);
 
 /* Utils */
 long long int		ft_atol(char *s);
@@ -67,6 +67,7 @@ void				set_obj_node(t_push_swap *lst);
 void				ft_push_swap(t_push_swap *lst);
 void				set_belowboolean(t_stack *stack);
 void				set_cost(t_stack *stack);
+void				do_pb(t_push_swap *lst);
 t_stack				*ft_search_smallest(t_stack *stack);
 
 #endif

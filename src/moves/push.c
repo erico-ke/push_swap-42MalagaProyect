@@ -6,7 +6,7 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 18:54:45 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/03/25 16:58:13 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/04/03 15:16:53 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	pb(t_push_swap *lst)
 {
 	t_stack	*tmp;
-	
+
 	tmp = lst->a->next;
 	lst->a->next = lst->b;
 	lst->b = lst->a;
@@ -26,10 +26,16 @@ void	pb(t_push_swap *lst)
 void	pa(t_push_swap *lst)
 {
 	t_stack	*tmp;
-	
+
 	tmp = lst->b->next;
 	lst->b->next = lst->a;
 	lst->a = lst->b;
 	lst->b = tmp;
 	ft_printf("pa\n", 1);
+}
+
+void	do_pb(t_push_swap *lst)
+{
+	while (ft_lst_size(lst->a) > 3)
+		pb(lst);
 }

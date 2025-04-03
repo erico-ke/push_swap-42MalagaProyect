@@ -6,7 +6,7 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 16:28:42 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/04/01 16:57:12 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/04/03 15:18:15 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,25 +29,27 @@ void	set_index(t_stack *lst)
 
 void	set_obj_node(t_push_swap *lst)
 {
-	t_stack			*tmpa;
-	t_stack			*tmpb;
-	long long int	cont;
+	t_stack	*tmpa;
+	t_stack	*tmpb;
+	t_stack	*best_match;
 
 	tmpb = lst->b;
 	while (tmpb)
 	{
 		tmpa = lst->a;
-		cont = tmpb->content;
-		tmpb->obj_node = NULL;
+		best_match = NULL;
 		while (tmpa)
 		{
-			if ((tmpb->content < tmpa->content && tmpb->content > cont))
-				tmpb->obj_node = tmpa;
-			cont = tmpa->content;
+			if (tmpa->content > tmpb->content)
+			{
+				if (!best_match || tmpa->content < best_match->content)
+					best_match = tmpa;
+			}
 			tmpa = tmpa->next;
 		}
-		if (!tmpb->obj_node)
-			tmpb->obj_node = ft_search_smallest(lst->a);
+		if (!best_match)
+			best_match = ft_search_smallest(lst->a);
+		tmpb->obj_node = best_match;
 		tmpb = tmpb->next;
 	}
 }
@@ -69,7 +71,7 @@ void	set_belowboolean(t_stack *stack)
 	}
 }
 
-int	get_big(int first, int second)
+static int	get_big(int first, int second)
 {
 	if (first > second)
 		return (first);

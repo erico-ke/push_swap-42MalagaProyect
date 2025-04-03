@@ -6,7 +6,7 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 18:35:39 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/03/20 18:21:54 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/04/03 15:11:45 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	ft_check_util(char **str, int i)
 	while (str[++i])
 	{
 		j = -1;
-		while(str[i][++j])
+		while (str[i][++j])
 		{
 			if ((str[i][j] == '-' || str[i][j] == '+')
 			&& ft_isdigit(str[i][j + 1]))
