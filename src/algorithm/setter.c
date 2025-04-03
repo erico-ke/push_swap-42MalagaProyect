@@ -6,7 +6,7 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 16:28:42 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/04/03 15:18:15 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/04/03 15:21:50 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,5 +97,3 @@ void	set_cost(t_stack *stack)
 		tmp = tmp->next;
 	}
 }
-// puede que varios costes terminen en 0,
-// en cuyo caso hay que tomar el primero encontrado al recorrer la lista.
