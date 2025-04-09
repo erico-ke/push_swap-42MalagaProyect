@@ -6,7 +6,7 @@
 /*   By: erico-ke <erico-ke@42malaga.student.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 15:43:54 by erico-ke          #+#    #+#             */
-/*   Updated: 2025/04/03 16:18:38 by erico-ke         ###   ########.fr       */
+/*   Updated: 2025/04/09 13:58:17 by erico-ke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ static void	tiny_sort(t_push_swap *lst)
 
 	tmp = lst->a;
 	highest_stack = tmp;
+	if (tmp->next == NULL)
+		return ;
 	while (tmp)
 	{
 		if (highest_stack->content < tmp->content)
