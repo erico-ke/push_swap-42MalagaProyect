@@ -104,7 +104,8 @@ void	ft_push_swap(t_push_swap *lst)
 
 	if (ft_issorted(lst->a) == EXIT_FAILURE)
 		do_pb(lst);
-	tiny_sort(lst);
+	if (ft_issorted(lst->a) == EXIT_FAILURE)
+		tiny_sort(lst);
 	while (ft_lst_size(lst->b) > 0)
 	{
 		set_index(lst->b);
