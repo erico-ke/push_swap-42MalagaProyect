@@ -60,7 +60,7 @@ Puedes usar el `checker` para validar si la secuencia de instrucciones es correc
 
 ```bash
 ARG="3 2 1"
-./push_swap $ARG | ./checker $ARG
+./push_swap $ARG | ./checker_linux $ARG
 ```
 
 Salida esperada: `OK` si está ordenado correctamente, `KO` si no.
